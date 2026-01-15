@@ -3,12 +3,15 @@ $(document).ready(function () {
     $('.artist_tab li').click(function () {
         var tabId = $(this).attr('data-tab');
 
+ 
         $('.artist_tab li').removeClass('on');
         $(this).addClass('on');
 
+    
         $('.artist_list_wrap').removeClass('on').hide();
         $('#' + tabId).addClass('on').fadeIn();
     });
+
 
 
     $('.md_tab li').click(function () {
@@ -21,7 +24,6 @@ $(document).ready(function () {
         $("#" + md_tab_id).addClass('on').fadeIn();
     });
 
-
     var owl = $('.gallery_list');
 
     owl.owlCarousel({
@@ -33,7 +35,7 @@ $(document).ready(function () {
         autoplayTimeout: 3000,
         smartSpeed: 600,
         nav: true, 
-        dots: true,
+        dots: true, 
         navText: ['<div class="nav_prev"></div>', '<div class="nav_next"></div>'],
         autoHeight: false,
         responsive: {
@@ -55,13 +57,12 @@ $(document).ready(function () {
         $('.owl-item.center').find('.gallery_picture_box').addClass('center');
     }
 
-
+ 
     $('.artist_card').mouseenter(function () {
         $(this).addClass('is-active');
     }).mouseleave(function () {
         $(this).removeClass('is-active');
     });
-
 
     $('.card_program').mouseenter(function () {
         $(this).addClass('is-active');
@@ -73,11 +74,11 @@ $(document).ready(function () {
     let isDown = false;
     let startX;
     let scrollLeft;
-    let isMoved = false;
+    let isMoved = false; 
 
     slider.addEventListener('mousedown', (e) => {
         isDown = true;
-        isMoved = false;
+        isMoved = false; 
         slider.classList.add('active');
         startX = e.pageX - slider.offsetLeft;
         scrollLeft = slider.scrollLeft;
@@ -99,6 +100,7 @@ $(document).ready(function () {
         const x = e.pageX - slider.offsetLeft;
         const walk = (x - startX) * 2;
 
+       
         if (Math.abs(x - startX) > 5) {
             isMoved = true;
             e.preventDefault();
@@ -106,6 +108,7 @@ $(document).ready(function () {
         }
     });
 
+    
     slider.addEventListener('click', (e) => {
         if (isMoved) {
             e.preventDefault();
